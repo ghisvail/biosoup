@@ -77,6 +77,8 @@ if (biosoup_install)
 endif ()
 
 if (biosoup_build_tests)
+  enable_testing()
+  
   add_executable(biosoup_test
     test/nucleic_acid_test.cpp
     test/overlap_test.cpp
@@ -87,4 +89,6 @@ if (biosoup_build_tests)
   target_link_libraries(biosoup_test
     biosoup
     GTest::Main)
+
+  add_test(NAME biosoup-test COMMAND biosoup_test)
 endif ()
